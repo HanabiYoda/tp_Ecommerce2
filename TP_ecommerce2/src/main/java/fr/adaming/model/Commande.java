@@ -15,7 +15,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
 
@@ -32,6 +35,7 @@ public class Commande implements Serializable{
 	private int IdCommande;
 	
 	@Column(name="date_co")
+	@Temporal(TemporalType.DATE)
 	private Date dateCommande;
 	
 	
@@ -40,11 +44,11 @@ public class Commande implements Serializable{
 	@JoinColumn(name="client_id", referencedColumnName="id_client")
 	private Client client;
 	
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinTable(name = "table de jointure", 
-	joinColumns = @JoinColumn(name = "co_id", referencedColumnName = "id_co"), 
-	inverseJoinColumns = @JoinColumn(name = "p_id", referencedColumnName = "id_p"))
-	private List<Produit> listProduit;
+
+	
+	@OneToMany(mappedBy="Commande",cascade=CascadeType.ALL)
+	private List<LigneCommande> listLigneCommande;
+	
 	
 	
 	public Commande() {
@@ -54,26 +58,22 @@ public class Commande implements Serializable{
 
 
 
-
-
-	public Commande(Date dateCommande, Client client) {
-		super();
-		this.dateCommande = dateCommande;
-		this.client = client;
-	}
-
-
-
-
-
-	public Commande(int idCommande, Date dateCommande, Client client) {
+	public Commande(int idCommande, Date dateCommande, Client client, List<LigneCommande> listLigneCommande) {
 		super();
 		IdCommande = idCommande;
 		this.dateCommande = dateCommande;
 		this.client = client;
+		this.listLigneCommande = listLigneCommande;
 	}
 
 
+
+	public Commande(Date dateCommande, Client client, List<LigneCommande> listLigneCommande) {
+		super();
+		this.dateCommande = dateCommande;
+		this.client = client;
+		this.listLigneCommande = listLigneCommande;
+	}
 
 
 
@@ -82,9 +82,11 @@ public class Commande implements Serializable{
 	}
 
 
+
 	public void setIdCommande(int idCommande) {
 		IdCommande = idCommande;
 	}
+
 
 
 	public Date getDateCommande() {
@@ -92,9 +94,11 @@ public class Commande implements Serializable{
 	}
 
 
+
 	public void setDateCommande(Date dateCommande) {
 		this.dateCommande = dateCommande;
 	}
+
 
 
 	public Client getClient() {
@@ -102,24 +106,29 @@ public class Commande implements Serializable{
 	}
 
 
+
 	public void setClient(Client client) {
 		this.client = client;
 	}
 
 
-	public List<Produit> getListProduit() {
-		return listProduit;
+
+	public List<LigneCommande> getListLigneCommande() {
+		return listLigneCommande;
 	}
 
 
-	public void setListProduit(List<Produit> listProduit) {
-		this.listProduit = listProduit;
+
+	public void setListLigneCommande(List<LigneCommande> listLigneCommande) {
+		this.listLigneCommande = listLigneCommande;
 	}
+
 
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
 
 
 

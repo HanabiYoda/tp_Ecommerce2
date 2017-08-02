@@ -42,26 +42,26 @@ public class Client implements Serializable{
 	}
 
 
-
-	public Client(int idClient, String nomClient, String adresse, String email, String tel) {
+	public Client(int idClient, String nomClient, String adresse, String email, String tel,
+			List<Commande> listCommande) {
 		super();
 		this.idClient = idClient;
 		this.nomClient = nomClient;
 		this.adresse = adresse;
 		this.email = email;
 		this.tel = tel;
+		this.listCommande = listCommande;
 	}
 
 
-
-	public Client(String nomClient, String adresse, String email, String tel) {
+	public Client(String nomClient, String adresse, String email, String tel, List<Commande> listCommande) {
 		super();
 		this.nomClient = nomClient;
 		this.adresse = adresse;
 		this.email = email;
 		this.tel = tel;
+		this.listCommande = listCommande;
 	}
-
 
 
 	public int getIdClient() {
@@ -69,11 +69,9 @@ public class Client implements Serializable{
 	}
 
 
-
 	public void setIdClient(int idClient) {
 		this.idClient = idClient;
 	}
-
 
 
 	public String getNomClient() {
@@ -81,11 +79,9 @@ public class Client implements Serializable{
 	}
 
 
-
 	public void setNomClient(String nomClient) {
 		this.nomClient = nomClient;
 	}
-
 
 
 	public String getAdresse() {
@@ -93,11 +89,9 @@ public class Client implements Serializable{
 	}
 
 
-
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
 	}
-
 
 
 	public String getEmail() {
@@ -105,11 +99,9 @@ public class Client implements Serializable{
 	}
 
 
-
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
 
 
 	public String getTel() {
@@ -117,17 +109,27 @@ public class Client implements Serializable{
 	}
 
 
-
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
 
 
+	public List<Commande> getListCommande() {
+		return listCommande;
+	}
+
+
+	public void setListCommande(List<Commande> listCommande) {
+		this.listCommande = listCommande;
+	}
+
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
+
+
+
 	
 
 }
