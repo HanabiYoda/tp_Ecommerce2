@@ -1,4 +1,4 @@
-package fr.adaming3.service;
+package fr.adaming.service;
 
 public interface IProduitService {
 
