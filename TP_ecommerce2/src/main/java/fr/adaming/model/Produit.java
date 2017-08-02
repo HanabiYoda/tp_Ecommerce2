@@ -40,7 +40,7 @@ public class Produit implements Serializable {
 	private String photo;
 
 	@ManyToOne
-	@JoinColumn(name = "ca_id", referencedColumnName = "id_c")
+	@JoinColumn(name = "ca_id", referencedColumnName = "id_ca")
 	private Categorie categorie;
 
 	public Produit() {

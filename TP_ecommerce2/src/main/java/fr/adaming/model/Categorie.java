@@ -22,11 +22,11 @@ public class Categorie implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_c")
+	@Column(name = "id_ca")
 	private int IdCategorie;
-	@Column(name = "nom_c")
+	@Column(name = "nom_ca")
 	private String nomCategorie;
-	@Column(name = "des_c")
+	@Column(name = "des_ca")
 	private String description;
 
 	@OneToMany(mappedBy = "categorie", cascade = CascadeType.ALL)

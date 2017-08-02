@@ -20,9 +20,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-
-
-
 @Entity
 @Table(name="commandes")
 public class Commande implements Serializable{
@@ -38,25 +35,17 @@ public class Commande implements Serializable{
 	@Temporal(TemporalType.DATE)
 	private Date dateCommande;
 	
-	
-	
 	@ManyToOne
-	@JoinColumn(name="client_id", referencedColumnName="id_client")
+	@JoinColumn(name="cl_id", referencedColumnName="id_cl")
 	private Client client;
-	
 
-	
 	@OneToMany(mappedBy="commande",cascade=CascadeType.ALL)
 	private List<LigneCommande> listLigneCommande;
-	
-	
 	
 	public Commande() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-
 
 	public Commande(int idCommande, Date dateCommande, Client client, List<LigneCommande> listLigneCommande) {
 		super();
@@ -66,8 +55,6 @@ public class Commande implements Serializable{
 		this.listLigneCommande = listLigneCommande;
 	}
 
-
-
 	public Commande(Date dateCommande, Client client, List<LigneCommande> listLigneCommande) {
 		super();
 		this.dateCommande = dateCommande;
@@ -75,63 +62,40 @@ public class Commande implements Serializable{
 		this.listLigneCommande = listLigneCommande;
 	}
 
-
-
 	public int getIdCommande() {
 		return IdCommande;
 	}
-
-
 
 	public void setIdCommande(int idCommande) {
 		IdCommande = idCommande;
 	}
 
-
-
 	public Date getDateCommande() {
 		return dateCommande;
 	}
-
-
 
 	public void setDateCommande(Date dateCommande) {
 		this.dateCommande = dateCommande;
 	}
 
-
-
 	public Client getClient() {
 		return client;
 	}
-
-
 
 	public void setClient(Client client) {
 		this.client = client;
 	}
 
-
-
 	public List<LigneCommande> getListLigneCommande() {
 		return listLigneCommande;
 	}
-
-
 
 	public void setListLigneCommande(List<LigneCommande> listLigneCommande) {
 		this.listLigneCommande = listLigneCommande;
 	}
 
-
-
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
-
-
-
-	
-	
 }
