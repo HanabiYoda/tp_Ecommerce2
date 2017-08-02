@@ -1,5 +1,5 @@
 package fr.adaming.service;
 
-public class PanierServiceImpl {
+public class PanierServiceImpl implements IPanierService {
 
 }
