@@ -41,49 +41,67 @@ super();
 }
 
 
-public Categorie(int idCategorie, String nomCategorie, String description) {
-super();
-IdCategorie = idCategorie;
-this.nomCategorie = nomCategorie;
-this.description = description;
+public Categorie(int idCategorie, String nomCategorie, String description, List<Produit> listProduit) {
+	super();
+	IdCategorie = idCategorie;
+	this.nomCategorie = nomCategorie;
+	this.description = description;
+	this.listProduit = listProduit;
 }
 
 
-public Categorie(String nomCategorie, String description) {
-super();
-this.nomCategorie = nomCategorie;
-this.description = description;
+public Categorie(String nomCategorie, String description, List<Produit> listProduit) {
+	super();
+	this.nomCategorie = nomCategorie;
+	this.description = description;
+	this.listProduit = listProduit;
 }
 
 
 public int getIdCategorie() {
-return IdCategorie;
+	return IdCategorie;
 }
 
 
 public void setIdCategorie(int idCategorie) {
-IdCategorie = idCategorie;
+	IdCategorie = idCategorie;
 }
 
 
 public String getNomCategorie() {
-return nomCategorie;
+	return nomCategorie;
 }
 
 
 public void setNomCategorie(String nomCategorie) {
-this.nomCategorie = nomCategorie;
+	this.nomCategorie = nomCategorie;
 }
 
 
 public String getDescription() {
-return description;
+	return description;
 }
 
 
 public void setDescription(String description) {
-this.description = description;
+	this.description = description;
 }
+
+
+public List<Produit> getListProduit() {
+	return listProduit;
+}
+
+
+public void setListProduit(List<Produit> listProduit) {
+	this.listProduit = listProduit;
+}
+
+
+public static long getSerialversionuid() {
+	return serialVersionUID;
+}
+
 
 
 

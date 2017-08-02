@@ -11,9 +11,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+
+
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -27,7 +28,7 @@ public class Produit implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id_p")
-	private int idProduit;
+	private int id_Produit;
 	@Column(name="designation_p")
 	private String designation;
 	@Column(name="descrip_p")
@@ -42,24 +43,21 @@ public class Produit implements Serializable {
 	private String photo;
 	
 	@ManyToOne
-	@JoinColumn(name="c_id", referencedColumnName="id_c")
+	@JoinColumn(name="co_id", referencedColumnName="id_co")
 	private Categorie categorie;
 	
-	@ManyToMany(mappedBy="listProduit",fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-	private List<Commande> listCommande;
-	
+	@OneToMany(mappedBy="Produit",cascade=CascadeType.ALL)
+	private List<Produit> listProduit;
 	
 	public Produit() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-
-
-	public Produit(int idProduit, String designation, String description, double prix, int quantite,
-			boolean selectionne, String photo, Categorie categorie) {
+	public Produit(int id_Produit, String designation, String description, double prix, int quantite,
+			boolean selectionne, String photo, Categorie categorie, List<Produit> listProduit) {
 		super();
-		this.idProduit = idProduit;
+		this.id_Produit = id_Produit;
 		this.designation = designation;
 		this.description = description;
 		this.prix = prix;
@@ -67,12 +65,11 @@ public class Produit implements Serializable {
 		this.selectionne = selectionne;
 		this.photo = photo;
 		this.categorie = categorie;
+		this.listProduit = listProduit;
 	}
-
-
 
 	public Produit(String designation, String description, double prix, int quantite, boolean selectionne, String photo,
-			Categorie categorie) {
+			Categorie categorie, List<Produit> listProduit) {
 		super();
 		this.designation = designation;
 		this.description = description;
@@ -81,104 +78,89 @@ public class Produit implements Serializable {
 		this.selectionne = selectionne;
 		this.photo = photo;
 		this.categorie = categorie;
+		this.listProduit = listProduit;
 	}
 
-
-
-
-	public int getIdProduit() {
-		return idProduit;
+	public int getId_Produit() {
+		return id_Produit;
 	}
 
-
-	public void setIdProduit(int idProduit) {
-		this.idProduit = idProduit;
+	public void setId_Produit(int id_Produit) {
+		this.id_Produit = id_Produit;
 	}
-
 
 	public String getDesignation() {
 		return designation;
 	}
 
-
 	public void setDesignation(String designation) {
 		this.designation = designation;
 	}
-
 
 	public String getDescription() {
 		return description;
 	}
 
-
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
 
 	public double getPrix() {
 		return prix;
 	}
 
-
 	public void setPrix(double prix) {
 		this.prix = prix;
 	}
-
 
 	public int getQuantite() {
 		return quantite;
 	}
 
-
 	public void setQuantite(int quantite) {
 		this.quantite = quantite;
 	}
-
 
 	public boolean isSelectionne() {
 		return selectionne;
 	}
 
-
 	public void setSelectionne(boolean selectionne) {
 		this.selectionne = selectionne;
 	}
-
 
 	public String getPhoto() {
 		return photo;
 	}
 
-
 	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
-
 
 	public Categorie getCategorie() {
 		return categorie;
 	}
 
-
 	public void setCategorie(Categorie categorie) {
 		this.categorie = categorie;
 	}
 
-
-	public List<Commande> getListCommande() {
-		return listCommande;
+	public List<Produit> getListProduit() {
+		return listProduit;
 	}
 
-
-	public void setListCommande(List<Commande> listCommande) {
-		this.listCommande = listCommande;
+	public void setListProduit(List<Produit> listProduit) {
+		this.listProduit = listProduit;
 	}
-
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
+	
+
+
+	
 
 
 
