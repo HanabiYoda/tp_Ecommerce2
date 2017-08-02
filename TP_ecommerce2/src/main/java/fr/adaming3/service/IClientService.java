@@ -1,4 +1,4 @@
-package fr.adaming.service;
+package fr.adaming3.service;
 
 public interface IClientService {
 
