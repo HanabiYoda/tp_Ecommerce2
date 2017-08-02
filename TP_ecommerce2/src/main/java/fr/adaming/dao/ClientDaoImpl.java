@@ -1,9 +1,16 @@
 package fr.adaming.dao;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import fr.adaming.model.Client;
+import fr.adaming.tool.Connector;
 
 @Repository // l'annotation pour la definition d'un de Dao de Spring IoC
 public class ClientDaoImpl implements IClientDao {
@@ -19,7 +26,7 @@ public class ClientDaoImpl implements IClientDao {
 		tx = Connector.getTx();
 		try {
 			tx.begin();
-			em.persist(t);
+			em.persist(cl);
 			tx.commit();
 		} catch (Exception e) {
 			Logger.getLogger(Connector.class.getName()).log(Level.SEVERE, null, e);
