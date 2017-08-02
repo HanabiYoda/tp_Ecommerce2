@@ -18,24 +18,20 @@
 
 <!-- pour afficher un trait horizontal -->
 <p:separator/>
-<h1 style="text-align: center; color: red;">Liste des employes</h1>
+<h1 style="text-align: center; color: red;">Liste des categories</h1>
 
 
-<p:dataTable var="employe" value="#{empMB.liste}">
+<p:dataTable var="categorie" value="#{catMB.liste}">
     <p:column headerText="Id">
-        <h:outputText value="#{employe.id}" />
+        <h:outputText value="#{employe.id_c}" />
     </p:column>
  
     <p:column headerText="Nom">
-        <h:outputText value="#{employe.nom}" />
+        <h:outputText value="#{employe.nom_c}" />
     </p:column>
  
     <p:column headerText="Prenom">
-        <h:outputText value="#{employe.prenom}" />
-    </p:column>
- 
-    <p:column headerText="Salaire">
-        <h:outputText value="#{employe.salaire}" />
+        <h:outputText value="#{employe.des_c}" />
     </p:column>
 </p:dataTable>
 

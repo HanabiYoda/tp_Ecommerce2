@@ -12,27 +12,26 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="ligneCommandes")
-public class LigneCommande implements Serializable{
+@Table(name = "ligneCommandes")
+public class LigneCommande implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="id_l")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id_l")
 	private int id_Ligne;
-	@Column(name="quant_l")
+	@Column(name = "quant_l")
 	private int quantite;
-	@Column(name="prix_l")
+	@Column(name = "prix_l")
 	private double prix;
-	
+
 	@ManyToOne
-	@JoinColumn(name="co_id", referencedColumnName="id_co")
+	@JoinColumn(name = "co_id", referencedColumnName = "id_co")
 	private Commande commande;
-	
+
 	@ManyToOne
-	@JoinColumn(name="p_id", referencedColumnName="id_p")
+	@JoinColumn(name = "p_id", referencedColumnName = "id_p")
 	private Produit produit;
 
 	public LigneCommande() {
@@ -40,21 +39,17 @@ public class LigneCommande implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public LigneCommande(int id_Ligne, int quantite, double prix, Commande commande, Produit produit) {
+	public LigneCommande(int id_Ligne, int quantite, double prix) {
 		super();
 		this.id_Ligne = id_Ligne;
 		this.quantite = quantite;
 		this.prix = prix;
-		this.commande = commande;
-		this.produit = produit;
 	}
 
-	public LigneCommande(int quantite, double prix, Commande commande, Produit produit) {
+	public LigneCommande(int quantite, double prix) {
 		super();
 		this.quantite = quantite;
 		this.prix = prix;
-		this.commande = commande;
-		this.produit = produit;
 	}
 
 	public int getId_Ligne() {
@@ -101,9 +96,4 @@ public class LigneCommande implements Serializable{
 		return serialVersionUID;
 	}
 
-
-	
-	
-	
-	
 }

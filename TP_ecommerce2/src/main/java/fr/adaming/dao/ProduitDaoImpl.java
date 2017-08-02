@@ -2,9 +2,11 @@ package fr.adaming.dao;
 
 import java.util.List;
 
-import fr.adaming.model.Produit;
+import org.springframework.stereotype.Repository;
 
-public class s implements IProduitDao {
+import fr.adaming.model.Produit;
+@Repository
+public class ProduitDaoImpl implements IProduitDao {
 
 	@Override
 	public void addProduit(Produit pr) {

@@ -32,7 +32,7 @@ public class Client implements Serializable{
 	private String tel;
 	
 	
-	@OneToMany(mappedBy="Client",cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="client",cascade=CascadeType.ALL)
 	private List<Commande> listCommande;
 	
 	
@@ -42,26 +42,29 @@ public class Client implements Serializable{
 	}
 
 
-	public Client(int idClient, String nomClient, String adresse, String email, String tel,
-			List<Commande> listCommande) {
+	
+
+	public Client(String nomClient, String adresse, String email, String tel) {
+		super();
+		this.nomClient = nomClient;
+		this.adresse = adresse;
+		this.email = email;
+		this.tel = tel;
+	}
+
+
+
+
+	public Client(int idClient, String nomClient, String adresse, String email, String tel) {
 		super();
 		this.idClient = idClient;
 		this.nomClient = nomClient;
 		this.adresse = adresse;
 		this.email = email;
 		this.tel = tel;
-		this.listCommande = listCommande;
 	}
 
 
-	public Client(String nomClient, String adresse, String email, String tel, List<Commande> listCommande) {
-		super();
-		this.nomClient = nomClient;
-		this.adresse = adresse;
-		this.email = email;
-		this.tel = tel;
-		this.listCommande = listCommande;
-	}
 
 
 	public int getIdClient() {

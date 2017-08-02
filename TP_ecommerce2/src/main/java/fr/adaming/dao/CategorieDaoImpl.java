@@ -2,25 +2,26 @@ package fr.adaming.dao;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Query;
-
-import fr.adaming.tool.Connector;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import fr.adaming.model.Categorie;
 
+@Repository
 public class CategorieDaoImpl implements ICategorieDao {
-	
-	public EntityManager em;
-	public EntityTransaction tx;
+
+	@Autowired
+	private SessionFactory sf;
+
+	public void setSf(SessionFactory sf) {
+		this.sf = sf;
+	}
 
 	@Override
 	public List<Categorie> getAllCategorie() {
-		em = Connector.getEm();
-		Query getallrep = em.createQuery("Select u from Categorie as u");
-		List<Categorie> lCategories = getallrep.getResultList();
-		return lCategories;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -46,7 +46,7 @@ public class Commande implements Serializable{
 	
 
 	
-	@OneToMany(mappedBy="Commande",cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="commande",cascade=CascadeType.ALL)
 	private List<LigneCommande> listLigneCommande;
 	
 	
