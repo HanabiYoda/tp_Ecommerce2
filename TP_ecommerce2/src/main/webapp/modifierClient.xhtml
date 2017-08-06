@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Page Modifier Client</title>
+</h:head>
+<h:body>
+
+<ui:insert name="header">
+<ui:include src="/templates/headerTemplates.xhtml"></ui:include>
+</ui:insert>
+
+<!-- pour afficher un trait horizontal -->
+<p:separator/>
+
+<h1 style="text-align: center; color: red;">Se Modifier</h1>
+
+	<h:form>
+		<div align="center">
+			<h:panelGrid columns="2">
+
+				<p:outputLabel for="idNomClient" value="Nom Client : " />
+				<p:inputMask id="idNomClient" value="#{cliMB.client.nomCl}" />
+
+				<p:outputLabel for="idAdresseClient" value="Adresse Client : " />
+				<p:inputMask id="idAdresseClient" value="#{cliMB.client.adresseCl}" />
+
+				<p:outputLabel for="idEmailClient" value="Email Client : " />
+				<p:inputMask id="idEmailClient" value="#{cliMB.client.emailCl}" />
+
+				<p:outputLabel for="idTelClient" value="Tel Client : " />
+				<p:inputMask id="idTelClient" value="#{cliMB.client.telCl}" />
+
+			</h:panelGrid>
+		</div>
+		<br />
+		<div align="center">
+			<p:commandButton value="modifier" action="#{cliMB.ajouterClient}"
+				update="@all" />
+		</div>
+	</h:form>
+
+</h:body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Page Rechercher Categorie</title>
+</h:head>
+<h:body>
+
+	<ui:insert name="header">
+		<ui:include src="/templates/headerTemplates.xhtml"></ui:include>
+	</ui:insert>
+
+	<!-- pour afficher un trait horizontal -->
+	<p:separator />
+
+	<h1 style="text-align: center; color: red;">Recherche d'une
+		Categorie</h1>
+
+	<h:form>
+		<div align="center">
+			<h:panelGrid columns="2">
+
+				<p:outputLabel for="idNom" value="Nom Categorie : " />
+				<p:inputMask id="idNom" value="#{catMB.categorie.nomCa}" />
+
+			</h:panelGrid>
+		</div>
+		<br />
+		<div align="center">
+			<p:commandButton value="rechercher"
+				action="#{catMB.rechercherCategorie}" update="@all" />
+		</div>
+	</h:form>
+	<br />
+
+	<h1 style="text-align: center; color: red;">Categorie trouvée</h1>
+
+	<p:dataTable var="categorie" value="#{catMB.categorie}">
+		<p:column headerText="Id">
+			<h:outputText value="#{categorie.idCa}" />
+		</p:column>
+
+		<p:column headerText="Nom">
+			<h:outputText value="#{categorie.nomCa}" />
+		</p:column>
+
+		<p:column headerText="Description">
+			<h:outputText value="#{categorie.descriptionCa}" />
+		</p:column>
+
+
+	</p:dataTable>
+
+
+</h:body>
+</html>
